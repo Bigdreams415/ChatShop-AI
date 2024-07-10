@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Sign Up | ChatShop</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <section class="Login">
+        <div class="container">
+            <div class="login_content">
+                <div class="logo_content">
+                    <div class="logo">
+                        <img src="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" alt="ChatShop Logo">
+                        <small>ChatShop</small>
+                    </div>
+                </div>
+                <div class="login-content">
+                    <h2>Create an account</h2>
+                    <div id="emailStep">
+                        <div class="input-container">
+                            <input type="email" name="email" id="email_address" placeholder="Email Address*" required>
+                        </div>
+                        <button id="continueEmail">Continue</button>
+                    </div>
+                    <div id="passwordStep" style="display: none;">
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input type="email" name="email" id="email_address_display" placeholder="Email Address*" required readonly>
+                                <button id="editEmail" type="button"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input type="password" name="password" id="password" placeholder="Enter New Password" required>
+                                <!-- <i class="fas fa-eye toggle-password" id="togglePassword"></i> -->
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                                <!-- <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i> -->
+                            </div>
+                        </div>
+                        <button id="submitPassword">Continue</button>
+                    </div>
+                    <small>Don't have an account? <a href="#">Sign Up</a></small>
+                    <hr> or <hr>
+                    <button class="google-btn"><i class="fab fa-google"></i> Continue with Google </button>
+                    <button class="microsoft-btn"><i class="fab fa-microsoft"></i> Continue with Microsoft</button>
+                    <button class="apple-btn"><i class="fab fa-apple"></i> Continue with Apple</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="login.js"></script>
+</body>
+</html>

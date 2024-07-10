@@ -1,0 +1,250 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .navigation {
+    width: 100%;
+  }
+  
+  .navigation .container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .logo {
+    display: inline-flex;
+  }
+  
+  .logo h3 {
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 25px;
+  }
+  
+  .logo img {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  
+  .nav-links {
+    display: inline-flex;
+    margin-left: auto;
+  }
+  
+  .shop {
+    width: 100%;
+  }
+  
+  .shop .container {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .shop .container b {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  
+  .info-details {
+    width: 80%;
+    border-radius: 15px;
+    border: 10px;
+    border-color: #000;
+    height: 300px;
+    display: flex;
+  }
+  
+  .personal-info {
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  .info-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .Ai-icon img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .personal-info-form {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .profile-pic {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+  
+  .profile-pic button {
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .Address-info {
+    border: 2px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.Address-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.Address-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.Ai-icon {
+    flex: 1;
+    text-align: center;
+}
+
+.address-info form {
+    flex: 3;
+}
+
+.address-info form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.address-info form input[type="text"],
+.address-info form input[type="number"],
+.address-info form input[type="email"],
+.address-info form input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.address-info button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.address-info button:hover {
+    background-color: #45a049;
+}
+
+.Additional-info {
+    border: 2px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.Additional-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.Additional-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.Ai-icon {
+    flex: 1;
+    text-align: center;
+}
+
+.Additional-info-form {
+    flex: 3;
+}
+
+.Additional-info-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.Additional-info-form select,
+.Additional-info-form input[type="text"],
+.Additional-info-form input[type="number"],
+.Additional-info-form input[type="email"],
+.Additional-info-form input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.Additional-info-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.Additional-info-form button:hover {
+    background-color: #45a049;
+}
+
+
+.personal-info button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.personal-info button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

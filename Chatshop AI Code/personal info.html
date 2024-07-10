@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Personal Info | ChatShop</title>
+    <link rel="stylesheet" href="Personal info.css">
+</head>
+<body>
+    <nav class="navigation">
+        <div class="container">
+            <div class="logo">
+                <img src="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" alt="ChatShop icon"> 
+                <h3>ChatShop</h3>
+            </div>
+            <div class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About Us</a></li>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="shop">
+            <div class="container">
+                <h1>Welcome to the future of shopping.</h1>
+                <b>Complete your profile in three simple steps.</b>
+            </div>
+        </div>
+        <section class="personal-info">
+            <div class="container">
+              <h1>1. Personal Information</h1>
+              <div class="info-details">
+                <div class="Ai-icon">
+                  <img src="ai-icon.png" alt="AI icon">
+                </div>
+                <div class="personal-info-form">
+                  <div class="profile-pic">
+                    <img src="Chatshop Icon/iconamoon_profile-circle-bold.png" alt="Profile Picture" id="profilePic">
+                    <input type="file" id="uploadPic" accept="image/*" style="display: none;">
+                    <button type="button" id="editPicBtn">Edit</button>
+                  </div>
+                  <form id="personalInfoForm" action="">
+                    <label for="first-name">First Name</label><br>
+                    <input type="text" name="name" id="first-name" required><br>
+                    <label for="last-name">Last Name</label><br>
+                    <input type="text" name="name" id="last-name" required><br>
+                    <label for="Dob">Date of Birth</label><br>
+                    <input type="date" name="date" id="Dob" placeholder="05/07/1990" required><br>
+                    <label for="email-address">Email Address</label><br>
+                    <input type="email" name="email" id="email-address" required><br>
+                    <label for="phoneNumber">Phone Number</label><br>
+                    <input type="tel" name="number" id="phoneNumber" required><br>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <button>Save</button>
+          </section>
+          
+          
+        <section class="Address-info">
+            <div class="container">
+                <h1>2. Address Information</h1>
+                <div class="Address-details">
+                    <div class="Ai-icon">
+                        <img src="" alt="AI icon">
+                    </div>
+                    <div class="address-info">
+                        <form action="">
+                            <label for="street-address">Street Address</label> <br>
+                            <input type="text" name="address" id="street-address" required>
+                            <label for="city">City</label> <br>
+                            <input type="text" name="name" id="city" required>
+                            <label for="state"> State/Providence</label> <br>
+                            <input type="text" name="state" id="state" required> 
+                            <label for="postalCode"> Postal Code</label> <br>
+                            <input type="text" name="postalCode" id="postalCode" required>
+                            <label for="Country">Country</label> <br>
+                            <input type="text" name="Country" id="Country" required>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <button>Next</button>
+        </section>
+
+
+        <section class="Additional-info">
+            <div class="container">
+                <h1>3. Additional Information and Security</h1>
+                <div class="Additional-details">
+                    <div class="Ai-icon">
+                        <img src="" alt="AI icon">
+                    </div>
+                    <div class="Additional-info-form">
+                        <form id="AdditionallInfoForm" action="">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender">
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                              <option value="nonbinary">Non-binary</option>
+                              <option value="prefer_not_to_say">Prefer not to say</option>
+                              <option value="other">Other</option>
+                            </select>
+                            <label for="gender_specify" id="gender_specify_label" style="display:none;">Please specify:</label>
+                            <input type="text" id="gender_specify" name="gender_specify" style="display:none;"/>
+                            <label for="language">Preferred Language:</label>
+                            <select id="language" name="language">
+                              <option value="en">English</option>
+                              <option value="es">Español (Spanish)</option>
+                              <option value="fr">Français (French)</option>
+                              <option value="de">Deutsch (German)</option>
+                              <option value="zh">中文 (Chinese)</option>
+                              <option value="hi">हिन्दी (Hindi)</option>
+                              <option value="ar">العربية (Arabic)</option>
+                              <option value="pt">Português (Portuguese)</option>
+                              <option value="ru">Русский (Russian)</option>
+                              <option value="ja">日本語 (Japanese)</option>
+                              <option value="ko">한국어 (Korean)</option>
+                              <option value="other">Other</option>
+                            </select>
+                            <label for="language_specify" id="language_specify_label" style="display:none;">Please specify:</label>
+                            <input type="text" id="language_specify" name="language_specify" style="display:none;"/>            
+                            <label for="username">Choose a Username:</label>
+                            <input type="text" id="username" name="username" maxlength="15" required>
+                            <small id="usernameHelp" class="form-text text-muted">
+                              Username must be 5-15 characters long, and can contain letters, numbers, and underscores.
+                            </small>
+                            <div id="usernameFeedback" style="color:red;"></div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <button>Save</button>
+        </section>
+    </main>
+    <script src="Personal info.js"></script>
+</body>
+</html>

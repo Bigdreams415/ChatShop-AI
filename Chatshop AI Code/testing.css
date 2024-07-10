@@ -1,0 +1,47 @@
+.personal-info {
+    border: 1px solid black;
+    padding: 20px;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  .info-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .Ai-icon img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .personal-info-form {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .profile-pic {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+  
+  .profile-pic button {
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
