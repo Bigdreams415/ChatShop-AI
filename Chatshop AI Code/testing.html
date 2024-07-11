@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -38,5 +38,35 @@
     <button>Next</button>
   </section>
   <script src="testing.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Area</title>
+    <link rel="stylesheet" href="testing.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+        </div>
+        <div class="chat-area">
+            <div class="navbar">
+                <h2>AI Chat</h2>
+            </div>
+            <div class="messages" id="messages"></div>
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
