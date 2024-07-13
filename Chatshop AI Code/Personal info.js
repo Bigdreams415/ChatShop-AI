@@ -68,12 +68,13 @@ function saveFormData() {
 
     // Save form data to localStorage
     localStorage.setItem('formData', JSON.stringify(formData));
-    alert('Your information has been saved!');
+    ;
 }
 
 // Event listener for the "Save" button
 saveButton.addEventListener('click', function() {
     saveFormData();
+    alert('Your information has been saved!');
 });
 
 // Function to load saved form data from localStorage

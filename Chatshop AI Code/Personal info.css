@@ -59,12 +59,12 @@
     border-radius: 15px;
     border: 10px;
     border-color: #000;
-    height: 300px;
+    height: 510px;
     display: flex;
   }
   
   .personal-info {
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 20px;
     margin-top: 30px;
   }
@@ -80,9 +80,10 @@
   }
   
   .Ai-icon img {
-    width: 100px;
-    height: 100px;
+    width: 60%;
+    height: 60%px;
   }
+
   
   .personal-info-form {
     flex: 1;
@@ -104,11 +105,12 @@
   
   .profile-pic button {
     position: absolute;
-    top: 75px;
+    top: 70px;
     left: 75px;
-    background-color: white;
+    /* background-color: white; */
     border: none;
     cursor: pointer;
+    columns: #000;
   }
   
 
@@ -116,7 +118,7 @@
     border: 2px solid black;
     padding: 20px;
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 3%;
 }
 
 .Address-info h1 {
@@ -167,15 +169,17 @@
     cursor: pointer;
     border-radius: 4px;
 }
-
-.address-info button:hover {
-    background-color: #45a049;
-}
-
 .Additional-info {
     border: 2px solid black;
     padding: 20px;
     margin-bottom: 20px;
+}
+
+
+.Additional-info-form{
+  width: 50%;
+  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .Additional-info h1 {
@@ -193,6 +197,7 @@
 .Ai-icon {
     flex: 1;
     text-align: center;
+    width: 45%;
 }
 
 .Additional-info-form {
@@ -219,7 +224,7 @@
     box-sizing: border-box;
 }
 
-.Additional-info-form button {
+/* .Additional-info-form button {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -227,17 +232,25 @@
     border: none;
     cursor: pointer;
     border-radius: 4px;
-}
-
-.Additional-info-form button:hover {
-    background-color: #45a049;
-}
+} */
 
 
-.personal-info button {
+
+/* .personal-info button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff; /* Blue color */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+} */
+
+.Address-info button{
+  margin-top: 20px !important;
+    padding: 10px 20px;
+    background-color: #007bff !important; /* Blue color */
     color: white;
     border: none;
     cursor: pointer;
@@ -245,6 +258,141 @@
     transition: background-color 0.3s ease;
 }
 
-.personal-info button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.Additional-info button{
+  margin-top: 20px !important;
+    padding: 10px 20px;
+    background-color: #007bff !important; /* Blue color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+
+.final-submit{
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.personal-info-form{
+  width: 50%;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+
+
+
+/* .save{
+  margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.save:hover{
+  background-color: #0056b3;
+} */
+
+
+
+
+/* .personal-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 500%;
+}
+
+.personal-info h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.personal-info .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.personal-info .Ai-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.personal-info .Ai-icon img {
+  width: 100px;
+  height: 100px;
+}
+
+.personal-info .profile-pic {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.personal-info .profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3498db;
+}
+
+.personal-info .profile-pic button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.personal-info .profile-pic button:hover {
+  background-color: #2980b9;
+} */
+
+.personal-info-form form {
+  margin-top: 20px;
+}
+
+.personal-info-form form label {
+  font-weight: bold;
+  /* margin-bottom: 2px; */
+  display: block;
+}
+
+.personal-info-form form input[type="text"],
+.personal-info-form form input[type="email"],
+.personal-info-form form input[type="tel"],
+.personal-info-form form input[type="date"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.personal-info-form form button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
 }
