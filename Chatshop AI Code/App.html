@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatShop AI</title>
-    <link rel="stylesheet" href="AIChatbot.css">
-    <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="App.css">
     <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="16x16" type="image/png">
     <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="48x48" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png">
-    <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="Chatshop Icon/3d-render-talk-chat-bubbles-comment-app-icon 3.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>ChatShop</title>
 </head>
 <body>
     <header class="navigation-bar">
@@ -22,7 +18,7 @@
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="#"><img src="Chatshop Icon/clarity_home-solid.png" alt="Home"></a></li>
+                    <li><a href="#"><img src="Chatshop Icon/Chat-app.png" alt="ChatShop"></a></li>
                     <li><a href="#"><img src="Chatshop Icon/mdi_category-plus.png" alt="Category"></a></li>
                     <li><a href="#"><img src="Chatshop Icon/mdi_cart-outline.png" alt="Cart"></a></li>
                     <li><a href="personal info.html"><img src="Chatshop Icon/iconamoon_profile-circle-bold.png" alt="Profile"></a></li>
@@ -31,44 +27,46 @@
             </nav>
         </div>
     </header>
+
     <div class="main-container">
         <aside class="side-bar">
             <div class="menu-icon">
-                <ul>
+                <i class="fas fa-bars" id="menuToggle"></i>
+                <div class="hidden" id="hiddenContent">
                     <h4>Recent Chat</h4>
                     <div class="new-chat">
                         <a href=""><img src="Chatshop Icon/gridicons_add-outline.png" alt="new-chat"> New Chat</a>
                     </div>
-                    <li><a href="#">Chat 1</a></li>
-                    <li><a href="#">Chat 2</a></li>
-                    <li><a href="#">Chat 3</a></li>
-                    <li><a href="#">Chat 4</a></li>
-                    <li><a href="#">Chat 5</a></li>
-                    <li><a href="#">Chat 6</a></li>
-                    <li><a href="#">Show more</a></li>
-
-                </ul>
+                    <ul>
+                        <li><a href="#">Chat 1</a></li>
+                        <li><a href="#">Chat 2</a></li>
+                        <li><a href="#">Chat 3</a></li>
+                        <li><a href="#">Chat 4</a></li>
+                        <li><a href="#">Chat 5</a></li>
+                        <li><a href="#">Chat 6</a></li>
+                        <li><a href="#">Show more</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="lower-icon">
                 <div class="help">
                     <img src="Chatshop Icon/material-symbols_help-outline.png" alt="Help tip">
-                    <!-- <img src="Chatshop Icon/ic_outline-settings.png" alt="settings"> -->
                 </div>
                 <div class="settings">
                     <img src="Chatshop Icon/ic_outline-settings.png" alt="settings">
                     <div class="settings-content" style="display: none;">
-
+                        <!-- Settings content can be added here -->
                     </div>
                 </div>
             </div>
             <div class="side-bar-footer">
-                
+                <!-- Footer content can be added here -->
             </div>
         </aside>
         <section class="main-bar-chat-area">
             <div class="container">
-                <h3>Hello, how can I help you today?</h3>
-                <div class="ai-chat-sample-idea">
+                <h3 class="intro-text">Hello, how can I help you today?</h3>
+                <div class="ai-chat-sample-idea" id="suggestions">
                     <div class="suggestion" onclick="fillInput('Are there any discounts on electronics?')">
                         <h4>Grab the best deals</h4>
                         <small>Are there any discounts on electronics?</small>
@@ -88,14 +86,16 @@
                 </div>
                 <div class="messages" id="messages"></div>
                 <div class="input-area">
-                    <textarea id="userInput" placeholder="Start a chat..."></textarea>
-                    <button onclick="sendMessage()">
-                        <img src="Chatshop Icon/material-symbols_send-outline.png" alt="Send" style="height: 20px;">
-                    </button>
-                </div>                             
+                    <div class="input-container">
+                        <textarea id="userInput" placeholder="Start a chat..." onkeydown="sendMessage(event)"></textarea>
+                        <button onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>                                
             </div>
         </section>
     </div>
-    <script src="AIChatbot.js"></script>
+    <script src="App.js"></script>
 </body>
 </html>
