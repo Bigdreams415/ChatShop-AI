@@ -36,3 +36,537 @@
 .navigation-bar .nav-links ul li a img {
     height: 30px;
 }
+
+/* landing-page section */
+
+ 
+/* Styles for the landing page section */
+.landing-page {
+    height: 80% !important;
+    background-color: #F5F5F5;    
+    /* height: auto; */
+    /* padding: 50px 0;   */
+}
+
+.landing-page .container {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Align items in the center vertically */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    /* padding: 0 20px; Padding on the sides */
+}
+
+.landing-page .chatshop {
+    padding-top: 14%;
+    width: 40%;
+    /* flex: 1; Take up available space */
+    padding-right: 10px; /* Padding on the right side */
+    align-self: self-start;
+    margin-left: 20px;
+}
+
+.landing-page .chatshop h1 {
+    font-weight: 700;
+    font-style: outfit;
+    font-size: 50px; /* Font size for the heading */
+    color: #080808;
+    line-height: 75px;
+    margin-bottom: 30px; /* Margin below the heading */
+}
+
+.landing-page .chatshop small {
+    padding-top: 0;
+    font-size: 22px; 
+    color: #080808 !important;
+    display: block; 
+    margin-bottom: 20px; 
+    font-weight: 600;
+    font-style: Roboto;
+    line-height: 29.3px;
+    /* margin-top: 0; */
+}
+
+.landing-page .chatshop button {
+    background-color: #4BA0F4;
+    width: 210px;
+    width: calc(300px -300px);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.landing-page .chatshop button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.landing-page .logo {
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    /* flex: 1; Take up available space */
+    display: flex; /* Flexbox for alignment */
+    /* justify-content:; Center the logo horizontally */
+    align-items: self-start;
+}
+
+.landing-page .logo img {
+    max-width: 100%; /* Make sure the image is responsive */
+    /* height: auto;   */
+}
+
+
+/* Styles for the recommendations section */
+.recommendations {
+    background-color: #fff; /* Light grey background */
+    padding: 40px 0; /* Padding at top and bottom */
+}
+
+.recommendations .container {
+    display: flex; /* Flexbox for layout */
+    flex-wrap: wrap; /* Wrap items to the next line */
+    justify-content: space-between; /* Space between items */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.recommendations .recommendation-content1,
+.recommendations .recommendation-content2,
+.recommendations .recommendation-content3,
+.recommendations .recommendation-content {
+    flex: 1 1 30%; /* Flexible width and minimum width */
+    margin-bottom: 20px; /* Margin below each recommendation */
+    padding: 15px; /* Padding inside each recommendation */
+    background-color: #fff; /* White background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.recommendations .recommendation-content1 {
+    background-color: #e6f7ff; /* Light blue background */
+    color: #007bff; /* Blue text color */
+}
+
+.recommendations .recommendation-content2 {
+    background-color: #e6ffe6; /* Light green background */
+    color: #28a745; /* Green text color */
+}
+
+.recommendations .recommendation-content3 {
+    background-color: #fff3e6; /* Light orange background */
+    color: #fd7e14; /* Orange text color */
+}
+
+.recommendations .recommendation-content small {
+    font-size: 1rem; /* Font size for the small text */
+    color: inherit; /* Inherit color from the parent */
+    display: block; /* Display as block element */
+    text-align: center; /* Center align text */
+}
+
+
+
+
+/* Styles for the Unlocking Effortless Shopping section */
+.unlocking-effortless-shopping {
+    background-color: #f5f5f5; /* Light grey background */
+    padding: 50px 0; /* Padding at top and bottom */
+    text-align: center; /* Center align text */
+}
+
+.unlocking-effortless-shopping .container {
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.unlocking-effortless-shopping h1 {
+    font-size: 2.5rem; /* Font size for the heading */
+    color: #333; /* Dark grey color */
+    margin-bottom: 40px; /* Margin below the heading */
+}
+
+.unlocking-effortless-shopping .steps {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Arrange steps vertically */
+    gap: 20px; /* Space between steps */
+}
+
+.unlocking-effortless-shopping .step {
+    background-color: #fff; /* White background */
+    padding: 20px; /* Padding inside each step */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Space between text and image */
+    text-align: left; /* Left align text */
+}
+
+.unlocking-effortless-shopping .step p {
+    font-size: 1.5rem; /* Font size for the step text */
+    color: #333; /* Dark grey color */
+    margin: 0; /* Remove default margin */
+    flex: 1; /* Take up available space */
+}
+
+.unlocking-effortless-shopping .step img {
+    max-width: 50%; /* Maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+@media (max-width: 768px) {
+    .unlocking-effortless-shopping .steps {
+        flex-direction: column; /* Arrange steps vertically on small screens */
+    }
+    
+    .unlocking-effortless-shopping .step {
+        flex-direction: column; /* Arrange content vertically within each step */
+        text-align: center; /* Center align text on small screens */
+    }
+    
+    .unlocking-effortless-shopping .step img {
+        max-width: 100%; /* Full width on small screens */
+        margin-top: 20px; /* Margin above the image */
+    }
+}
+
+
+/* Styles for the Personal Mini Mart section */
+.personal-mini-mart {
+    background-color: #f5f5f5; /* Light grey background */
+    padding: 50px 0; /* Padding at top and bottom */
+    text-align: center; /* Center align content */
+}
+
+.personal-mini-mart .container {
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.personal-mini-mart .mini-mart {
+    background-color: #fff; /* White background for the mini-mart area */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: inline-block; /* Inline-block for proper centering */
+    padding: 20px; /* Padding inside the mini-mart area */
+}
+
+.personal-mini-mart .mini-mart img {
+    max-width: 100%; /* Ensure the image is responsive */
+    /* width: 90%; */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+@media (max-width: 768px) {
+    .personal-mini-mart {
+        padding: 30px 0; /* Adjust padding for smaller screens */
+    }
+    
+    .personal-mini-mart .mini-mart {
+        padding: 15px; /* Adjust padding inside the mini-mart for smaller screens */
+    }
+}
+
+
+
+/* Styles for the Ultimate Shopping Companion section */
+.ultimate-shopping-companion {
+    background-color: #f5f5f5; /* Light grey background */
+    padding: 50px 0; /* Padding at top and bottom */
+    text-align: center; /* Center align text */
+}
+
+.ultimate-shopping-companion .container {
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.ultimate-shopping-companion .container h1 {
+    font-size: 40px; 
+    color: #080808 !important; 
+    margin-bottom: 10px; 
+    font-weight: 700;
+    line-height: 20px;
+    align-items: center;
+}
+
+.ultimate-shopping-companion .container p {
+    padding-top: 15px;
+    font-size: 25px;
+    color: #080808 !important; 
+    display: block; 
+    margin-bottom: 40px; 
+    font-weight: 500;
+    line-height: 10px;
+}
+
+.ultimate-shopping-companion .AI-chat-features {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;  
+}
+
+.ultimate-shopping-companion .features-row {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.ultimate-shopping-companion .features {
+    width: calc(50% - 20px); 
+    height: 300px; 
+    background-color: #000; 
+    color: #fff !important; 
+    padding: 20px; 
+    border-radius: 15px; 
+    box-sizing: border-box;  
+    text-align: center;  
+    opacity: 0;  
+    transform: translateY(20px);  
+    transition: all 0.5s ease-in-out; 
+}
+
+.ultimate-shopping-companion .features h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+}
+
+.ultimate-shopping-companion .features small {
+    font-size: 1rem; /* Font size for the small text */
+}
+
+@media (max-width: 768px) {
+    .ultimate-shopping-companion .features {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+/* Animation trigger on scroll */
+.ultimate-shopping-companion .features.scroll-reveal {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+.features h2, small{
+    text-align: center;
+    color: #fff !important;
+    padding-top: 15%;
+    font-weight: 600;
+}
+
+.features h2{
+    font-size: 35px !important;
+    text-align: center;
+    align-items: center;
+}
+
+.features small{
+    font-size: 20px !important;
+    /* line-height: 10px; */
+    color: #fff !important;
+    text-align: center !important;
+    align-items: center !important;
+}
+
+/* Footer section design */
+
+.footer-section {
+    background-color: #000;
+    color: #fff;
+    padding-top: 15px;
+    /* padding: 40px 0; */
+    margin-left: 0;
+    padding-left: 0;
+    font-family: Arial, sans-serif;
+    padding-bottom: 20px;
+}
+
+.footer-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 0;
+}
+
+.footer-section .logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-section .logo img {
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.footer-section .logo img:hover {
+    transform: scale(1.1);
+}
+
+.footer-section .logo h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.footer-section .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.footer-section .nav-links a:hover {
+    color: #ff6347;
+    border-bottom: 2px solid #ff6347;
+}
+
+.footer-section .nav-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-section .nav-icons a {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.footer-section .nav-icons img {
+    height: 30px;
+}
+
+.footer-section .nav-icons a:hover {
+    transform: scale(1.2);
+}
+
+.footer-section .footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .footer-section .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+}
+
+
+
+/* Ready section */
+
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.ready {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.ready .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ready h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.ready small {
+    display: block;
+    margin-bottom: 20px;
+    color: #000 !important;
+    padding-top: 0;
+    font-size: 25px;
+}
+
+.ready button {
+    background-color: #4BA0F4;
+    width: 210px;
+    width: calc(300px -300px);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ready button:hover {
+    background-color: #e55347;
+}
+
+.ready .shop-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ready .shop-image img {
+    width: 20%;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: shake 1s infinite;
+}
+
+.ready .shop-image img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .ready .shop-image img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}

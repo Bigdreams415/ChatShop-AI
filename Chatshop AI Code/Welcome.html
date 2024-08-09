@@ -49,5 +49,17 @@
         </div>
     </section>
     <script src="login.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = sessionStorage.getItem('username');
+            const userSpan = document.getElementById('user');
+            
+            if (username) {
+                userSpan.textContent = username;
+            } else {
+                userSpan.textContent = 'Guest'; // Default text if username is not found
+            }
+        });
+    </script>
 </body>
 </html>

@@ -19,32 +19,29 @@
                 </div>
                 <div class="login-content">
                     <h2>Welcome Back</h2>
-                    <div id="emailStep">
-                        <div class="input-container">
-                            <input type="email" name="email" id="email_address" required>
-                            <label for="email_address">Email Address*</label>
-                        </div>
-                        <button id="continueEmail">Continue</button>
-                    </div>
-                    <div id="passwordStep" style="display: none;">
-                        <div class="input-container">
-                            <div class="input-wrapper">
-                                <input type="email" name="email" id="email_address_display" required readonly>
-                                <!-- <label for="email_address_display">Email Address*</label> -->
-                                <button id="editEmail" type="button"><i class="fas fa-edit"></i></button>
+                    <form id="loginForm">
+                        <div id="emailStep">
+                            <div class="input-container">
+                                <input type="email" name="email" id="email_address" required>
+                                <label for="email_address">Email Address*</label>
                             </div>
+                            <button id="continueEmail">Continue</button>
                         </div>
-                        <div class="input-container">
-                            <input type="password" name="password" id="password" required>
-                            <label for="password">Password</label>
+                        <div id="passwordStep" style="display: none;">
+                            <div class="input-container">
+                                <div class="input-wrapper">
+                                    <input type="email" name="email" id="email_address_display" required readonly>
+                                    <button id="editEmail" type="button"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <input type="password" name="password" id="password" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <button id="submitPassword">Continue</button>
                         </div>
-                        <!-- <div class="input-container">
-                            <input type="password" name="confirm_password" id="confirm_password" required>
-                            <label for="confirm_password">Confirm Password</label>
-                        </div> -->
-                        <button id="submitPassword">Continue</button>
-                    </div>
-                    <small>Don't have an account? <a href="#">Sign Up</a></small>
+                    </form>
+                    <small>Don't have an account? <a href="Sign Up.html">Sign Up</a></small>
                     <hr> or <hr>
                     <button class="google-btn"><i class="fab fa-google"></i> Continue with Google </button>
                     <button class="microsoft-btn"><i class="fab fa-microsoft"></i> Continue with Microsoft</button>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>ChatShop</title>
 </head>
-<body>
+<body id="body">
     <header class="navigation-bar">
         <div class="container">
             <div class="logo">
@@ -20,7 +20,7 @@
                 <ul>
                     <li><a href="#"><img src="Chatshop Icon/Chat-app.png" alt="ChatShop"></a></li>
                     <li><a href="#"><img src="Chatshop Icon/mdi_category-plus.png" alt="Category"></a></li>
-                    <li><a href="#"><img src="Chatshop Icon/mdi_cart-outline.png" alt="Cart"></a></li>
+                    <!-- <li><a href="#"><img src="Chatshop Icon/mdi_cart-outline.png" alt="Cart"></a></li> -->
                     <li><a href="personal info.html"><img src="Chatshop Icon/iconamoon_profile-circle-bold.png" alt="Profile"></a></li>
                     <li><a href="#"><img src="Chatshop Icon/mdi_logout.png" alt="Logout"></a></li>
                 </ul>
@@ -37,7 +37,7 @@
                     <div class="new-chat">
                         <a href=""><img src="Chatshop Icon/gridicons_add-outline.png" alt="new-chat"> New Chat</a>
                     </div>
-                    <ul>
+                    <ul id="recent-chats">
                         <li><a href="#">Chat 1</a></li>
                         <li><a href="#">Chat 2</a></li>
                         <li><a href="#">Chat 3</a></li>
@@ -45,7 +45,7 @@
                         <li><a href="#">Chat 5</a></li>
                         <li><a href="#">Chat 6</a></li>
                         <li><a href="#">Show more</a></li>
-                    </ul>
+                    </ul>                    
                 </div>
             </div>
             <div class="lower-icon">
@@ -53,11 +53,32 @@
                     <img src="Chatshop Icon/material-symbols_help-outline.png" alt="Help tip">
                 </div>
                 <div class="settings">
-                    <img src="Chatshop Icon/ic_outline-settings.png" alt="settings">
-                    <div class="settings-content" style="display: none;">
-                        <!-- Settings content can be added here -->
+                    <button id="settings-button" class="settings-button">
+                        <img src="Chatshop Icon/ic_outline-settings.png" alt="settings">
+                    </button>
+                    <!-- Settings Popup -->
+                    <div id="settings-popup" class="popup">
+                        <div class="popup-content">
+                            <span id="close-popup" class="close">&times;</span>
+                            <h2>Settings</h2>
+                            <!-- Add your settings content here -->
+                            <form>
+                                <label for="theme">Theme:</label>
+                                <select id="theme" name="theme">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                                <br><br>
+                                <label for="notifications">Notifications:</label>
+                                <input type="checkbox" id="notifications" name="notifications">
+                                <label for="notifications">Enable notifications</label>
+                                <br><br>
+                                <button type="submit">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                
             </div>
             <div class="side-bar-footer">
                 <!-- Footer content can be added here -->
@@ -92,9 +113,9 @@
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
-                </div>                                
+                </div>
             </div>
-        </section>
+        </section>        
     </div>
     <script src="App.js"></script>
 </body>

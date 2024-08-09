@@ -197,10 +197,12 @@ body, html {
     border: 1px solid #000;
 }
 
-/* .message.ai{
-    border: 1px solid #00ACC1;
-    border-radius: 20px;
-} */
+/* AI Message Styling */
+.message.ai {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-start; /* Align AI messages to the left */
+}
 
 .message.ai .content {
     background-color: #fff;
@@ -208,7 +210,12 @@ body, html {
     text-align: left;
     border-radius: 20px;
     border: 1px solid #00ACC1;
+    max-width: 80% !important; /* Adjust as needed */
+    word-wrap: break-word !important;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 
 /* Code for words wrap up */
@@ -216,7 +223,7 @@ body, html {
 
 .message.user .content,
 .message.ai .content {
-    max-width: 80%; /* Adjust as needed */
+    max-width: 80% ; /* Adjust as needed */
     word-wrap: break-word;
 }
 
@@ -300,3 +307,102 @@ body, html {
 .input-container button i {
     font-size: 20px; /* Adjust icon size as needed */
 }
+
+
+/* for product displaying */
+
+.product-image {
+    max-width: 100%; /* Ensure the image scales responsively */
+    height: auto;
+    margin: 10px 0; /* Add spacing around the image */
+}
+
+
+
+
+/* code for Link card */
+
+.url-card {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px solid #fff;
+    background-color: #f9f9f9;
+    text-decoration: none;
+    color: #007BFF;
+    transition: background-color 0.3s ease;
+}
+.url-card:hover {
+    background-color: #e2e6ea;
+}
+
+
+/* settings pop up */
+
+/* Light Mode (default) */
+body {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Popup Container */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* Dark Mode Popup Content */
+body.dark-mode .popup-content {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Settings Button */
+.settings-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
