@@ -297,16 +297,23 @@ function fetchRecentChats(email, sessionKey) {
   
 
 
-  document.addEventListener("DOMContentLoaded", function() {
+//   document.addEventListener("DOMContentLoaded", function() {
     // Check if email and username exist in sessionStorage
-    const email = sessionStorage.getItem('email');
-    const username = sessionStorage.getItem('username'); // Assuming you also store a username
+    // const email = sessionStorage.getItem('email');
+    // const username = sessionStorage.getItem('username'); // Assuming you also store a username
 
-    if (!email || !username) {
+    // if (!email || !username) {
         // Redirect to login.html if either is not found
-        window.location.href = 'login.html';
-    }
+    //     window.location.href = 'login.html';
+    // }
     
     // Rest of your code goes here
-});
+// });
 
+
+
+// Menu toggle for mobile device
+
+document.getElementById('menuToggle').addEventListener('click', function() {
+    document.querySelector('.side-bar').classList.toggle('active');
+});

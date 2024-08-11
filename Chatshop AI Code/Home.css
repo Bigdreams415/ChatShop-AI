@@ -3,9 +3,7 @@
     padding: 0;
 }
 
-
-
-.navigation-bar .container{
+.navigation-bar .container {
     width: 100%;
     height: 60px;
     background-color: hwb(0 100% 0%);
@@ -13,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .navigation-bar .logo {
@@ -33,28 +32,71 @@
     padding: 0;
 }
 
-.navigation-bar .nav-links ul li a img {
-    height: 30px;
+.navigation-bar .nav-links ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navigation-bar .nav-links ul li a:hover {
+    color: #007bff;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .navigation-bar .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: hwb(0 100% 0%);
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation-bar .nav-links ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-right: 0;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .navigation-bar .nav-links.active {
+        display: flex;
+    }
 }
 
 /* landing-page section */
 
  
-/* Styles for the landing page section */
+
 .landing-page {
     height: 80% !important;
     background-color: #F5F5F5;    
-    /* height: auto; */
-    /* padding: 50px 0;   */
 }
 
 .landing-page .container {
-    display: flex; /* Flexbox for alignment */
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Align items in the center vertically */
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    /* padding: 0 20px; Padding on the sides */
+    display: flex;  
+    justify-content: space-between; 
+    align-items: center;  
+    max-width: 1200px; 
+    margin: 0 auto; 
+
 }
 
 .landing-page .chatshop {
@@ -69,10 +111,10 @@
 .landing-page .chatshop h1 {
     font-weight: 700;
     font-style: outfit;
-    font-size: 50px; /* Font size for the heading */
+    font-size: 50px;  
     color: #080808;
     line-height: 75px;
-    margin-bottom: 30px; /* Margin below the heading */
+    margin-bottom: 30px; 
 }
 
 .landing-page .chatshop small {
@@ -84,7 +126,7 @@
     font-weight: 600;
     font-style: Roboto;
     line-height: 29.3px;
-    /* margin-top: 0; */
+    
 }
 
 .landing-page .chatshop button {
@@ -101,7 +143,7 @@
 }
 
 .landing-page .chatshop button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
 .landing-page .logo {
@@ -109,171 +151,232 @@
     padding-top: 0;
     margin-left: 0;
     padding-left: 0;
-    /* flex: 1; Take up available space */
-    display: flex; /* Flexbox for alignment */
-    /* justify-content:; Center the logo horizontally */
+    display: flex; 
     align-items: self-start;
 }
 
 .landing-page .logo img {
-    max-width: 100%; /* Make sure the image is responsive */
-    /* height: auto;   */
+    max-width: 100%; 
+   
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .landing-page .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .landing-page .chatshop {
+        width: 100%;
+        padding-top: 10%;
+        margin-left: 0;
+    }
+
+    .landing-page .chatshop h1 {
+        font-size: 36px;
+        line-height: 48px;
+        margin-bottom: 20px;
+    }
+
+    .landing-page .chatshop small {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 15px;
+    }
+
+    .landing-page .chatshop button {
+        width: 80%;
+        padding-top: 10px;
+        padding: 12px 0;
+    }
+
+    .landing-page .logo {
+        margin-top: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .landing-page .logo img {
+        width: 70%; 
+        height: auto;
+    }
 }
 
 
 /* Styles for the recommendations section */
 .recommendations {
-    background-color: #fff; /* Light grey background */
-    padding: 40px 0; /* Padding at top and bottom */
+    background-color: #fff;
+    padding: 40px 0;
 }
 
 .recommendations .container {
-    display: flex; /* Flexbox for layout */
-    flex-wrap: wrap; /* Wrap items to the next line */
-    justify-content: space-between; /* Space between items */
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* Recommendation content styles */
 .recommendations .recommendation-content1,
 .recommendations .recommendation-content2,
 .recommendations .recommendation-content3,
 .recommendations .recommendation-content {
-    flex: 1 1 30%; /* Flexible width and minimum width */
-    margin-bottom: 20px; /* Margin below each recommendation */
-    padding: 15px; /* Padding inside each recommendation */
-    background-color: #fff; /* White background color */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    flex: 1 1 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+/* Color variations */
 .recommendations .recommendation-content1 {
-    background-color: #e6f7ff; /* Light blue background */
-    color: #007bff; /* Blue text color */
+    background-color: #e6f7ff;
+    color: #007bff;
 }
 
 .recommendations .recommendation-content2 {
-    background-color: #e6ffe6; /* Light green background */
-    color: #28a745; /* Green text color */
+    background-color: #e6ffe6;
+    color: #28a745;
 }
 
 .recommendations .recommendation-content3 {
-    background-color: #fff3e6; /* Light orange background */
-    color: #fd7e14; /* Orange text color */
+    background-color: #fff3e6;
+    color: #fd7e14;
 }
 
 .recommendations .recommendation-content small {
-    font-size: 1rem; /* Font size for the small text */
-    color: inherit; /* Inherit color from the parent */
-    display: block; /* Display as block element */
-    text-align: center; /* Center align text */
+    font-size: 1rem;
+    color: inherit;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recommendations .recommendation-content1,
+    .recommendations .recommendation-content2,
+    .recommendations .recommendation-content3,
+    .recommendations .recommendation-content {
+        flex: 1 1 100%; /* Full width on small screens */
+        margin-bottom: 15px;
+    }
+
+    .recommendations .container {
+        padding: 0 10px; /* Reduce padding on smaller screens */
+    }
 }
 
 
 
 
 /* Styles for the Unlocking Effortless Shopping section */
+
+
 .unlocking-effortless-shopping {
-    background-color: #f5f5f5; /* Light grey background */
-    padding: 50px 0; /* Padding at top and bottom */
-    text-align: center; /* Center align text */
+    background-color: #f5f5f5;  
+    padding: 50px 0; 
+    text-align: center;  
 }
 
 .unlocking-effortless-shopping .container {
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
+    max-width: 1200px;  
+    margin: 0 auto;  
+    padding: 0 20px;  
 }
 
 .unlocking-effortless-shopping h1 {
-    font-size: 2.5rem; /* Font size for the heading */
-    color: #333; /* Dark grey color */
-    margin-bottom: 40px; /* Margin below the heading */
+    font-size: 2.5rem;  
+    color: #333;  
+    margin-bottom: 40px; 
 }
 
 .unlocking-effortless-shopping .steps {
-    display: flex; /* Flexbox for layout */
-    flex-direction: column; /* Arrange steps vertically */
-    gap: 20px; /* Space between steps */
+    display: flex;  
+    flex-direction: column;  
+    gap: 20px; 
 }
 
 .unlocking-effortless-shopping .step {
-    background-color: #fff; /* White background */
-    padding: 20px; /* Padding inside each step */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    display: flex; /* Flexbox for layout */
-    align-items: center; /* Center align items vertically */
-    justify-content: space-between; /* Space between text and image */
-    text-align: left; /* Left align text */
+    background-color: #fff; 
+    padding: 20px;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    display: flex;  
+    align-items: center; 
+    justify-content: space-between; 
+    text-align: left; 
 }
 
 .unlocking-effortless-shopping .step p {
-    font-size: 1.5rem; /* Font size for the step text */
-    color: #333; /* Dark grey color */
-    margin: 0; /* Remove default margin */
-    flex: 1; /* Take up available space */
+    font-size: 1.5rem; 
+    color: #333; 
+    margin: 0; 
+    flex: 1; 
 }
 
 .unlocking-effortless-shopping .step img {
-    max-width: 50%; /* Maximum width of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners */
+    max-width: 50%;  
+    height: auto;  
+    border-radius: 10px; 
 }
 
 @media (max-width: 768px) {
     .unlocking-effortless-shopping .steps {
-        flex-direction: column; /* Arrange steps vertically on small screens */
+        flex-direction: column;  
     }
     
     .unlocking-effortless-shopping .step {
-        flex-direction: column; /* Arrange content vertically within each step */
-        text-align: center; /* Center align text on small screens */
+        flex-direction: column; 
+        text-align: center;
     }
     
     .unlocking-effortless-shopping .step img {
-        max-width: 100%; /* Full width on small screens */
-        margin-top: 20px; /* Margin above the image */
+        max-width: 100%; 
+        margin-top: 20px; 
     }
 }
 
 
 /* Styles for the Personal Mini Mart section */
 .personal-mini-mart {
-    background-color: #f5f5f5; /* Light grey background */
-    padding: 50px 0; /* Padding at top and bottom */
-    text-align: center; /* Center align content */
+    background-color: #f5f5f5;  
+    padding: 50px 0;  
+    text-align: center;  
 }
 
 .personal-mini-mart .container {
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
+    max-width: 1200px;  
+    margin: 0 auto;  
+    padding: 0 20px;  
 }
 
 .personal-mini-mart .mini-mart {
-    background-color: #fff; /* White background for the mini-mart area */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    display: inline-block; /* Inline-block for proper centering */
-    padding: 20px; /* Padding inside the mini-mart area */
+    background-color: #fff;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    display: inline-block;  
+    padding: 20px;  
 }
 
 .personal-mini-mart .mini-mart img {
-    max-width: 100%; /* Ensure the image is responsive */
-    /* width: 90%; */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners for the image */
+    max-width: 100%;  
+    height: auto;  
+    border-radius: 10px; 
 }
 
 @media (max-width: 768px) {
     .personal-mini-mart {
-        padding: 30px 0; /* Adjust padding for smaller screens */
+        padding: 30px 0;  
     }
     
     .personal-mini-mart .mini-mart {
-        padding: 15px; /* Adjust padding inside the mini-mart for smaller screens */
+        padding: 15px;  
     }
 }
 
@@ -281,15 +384,15 @@
 
 /* Styles for the Ultimate Shopping Companion section */
 .ultimate-shopping-companion {
-    background-color: #f5f5f5; /* Light grey background */
-    padding: 50px 0; /* Padding at top and bottom */
-    text-align: center; /* Center align text */
+    background-color: #f5f5f5;  
+    padding: 50px 0; 
+    text-align: center;  
 }
 
 .ultimate-shopping-companion .container {
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
+    max-width: 1200px;  
+    margin: 0 auto;  
+    padding: 0 20px;  
 }
 
 .ultimate-shopping-companion .container h1 {
@@ -349,14 +452,32 @@
 
 @media (max-width: 768px) {
     .ultimate-shopping-companion .features {
-        width: 100%; /* Full width on small screens */
+        width: 100%; 
+    }
+    .ultimate-shopping-companion .container p{
+        padding-top: 15px;
+        font-size: 25px;
+        color: #080808 !important; 
+        display: block; 
+        margin-bottom: 40px; 
+        font-weight: 500;
+        line-height: 30px;
+    }
+
+    .ultimate-shopping-companion .container h1{
+        font-size: 30px; 
+        color: #080808 !important; 
+        margin-bottom: 10px; 
+        font-weight: 600;
+        line-height: 30px;
+        align-items: center;
     }
 }
 
 /* Animation trigger on scroll */
 .ultimate-shopping-companion .features.scroll-reveal {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Move to original position */
+    opacity: 1;  
+    transform: translateY(0); 
 }
 
 .features h2, small{
@@ -374,7 +495,6 @@
 
 .features small{
     font-size: 20px !important;
-    /* line-height: 10px; */
     color: #fff !important;
     text-align: center !important;
     align-items: center !important;

@@ -406,3 +406,145 @@ body.dark-mode .popup-content {
 }
 
 
+
+/* Base styles for larger screens (desktop) */
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+    /* Reset default margins and paddings for mobile */
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+    }
+
+    /* Make the navigation bar responsive */
+    .navigation-bar {
+        height: auto;
+        padding: 10px;
+    }
+
+    .navigation-bar .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation-bar .logo img {
+        height: 30px;
+    }
+
+    .navigation-bar .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navigation-bar .nav-links ul li {
+        margin: 10px 0;
+    }
+
+    .navigation-bar .nav-links ul li a img {
+        height: 25px;
+    }
+
+    /* Side bar adjustments for mobile */
+    .side-bar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: none; /* Initially hidden for mobile */
+        flex-direction: column;
+    }
+
+    .side-bar.active {
+        display: flex;
+    }
+
+    /* Show the sidebar when toggled */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Main chat area adjustments for mobile */
+    .main-bar-chat-area {
+        margin-top: 60px; /* Adjust for fixed header */
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .ai-chat-sample-idea {
+        display: block;
+    }
+
+    .ai-chat-sample-idea .suggestion {
+        flex: 1;
+        margin: 5px 0;
+        padding: 8px;
+    }
+
+    .messages {
+        max-height: calc(100vh - 200px); /* Adjust for header and input */
+        width: 100%;
+    }
+
+    .input-area {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-container textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Responsive popup */
+    .popup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        position: relative;
+    }
+
+    /* Dark Mode for mobile */
+    body.dark-mode {
+        background-color: #333;
+        color: #fff;
+    }
+
+    body.dark-mode .popup-content {
+        background-color: #444;
+        color: #fff;
+    }
+
+    /* Hide the settings button when the sidebar is active */
+    .side-bar .settings-button {
+        display: none;
+    }
+}

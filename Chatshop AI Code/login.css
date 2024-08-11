@@ -103,7 +103,7 @@ h2 {
 
 /* Input field styles */
 input[type="email"], input[type="password"] {
-    width: 100%;
+    width: 91%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
@@ -266,8 +266,10 @@ small a:hover {
 }
 
 /* Responsive design */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 15px;
     }
 }
+
+
