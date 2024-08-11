@@ -2,6 +2,7 @@ require('dotenv').config({ path: './keys.env' }); // Load environment variables 
 console.log('JWT_SECRET:', process.env.JWT_SECRET);  // Debugging line
 
 const express = require('express');
+const path = require('path');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
+
 
 // MongoDB Config
 const db = process.env.MONGO_URI; // Replace with your MongoDB connection string
@@ -36,7 +38,14 @@ const UserSchema = new mongoose.Schema({
 // Create the User model from the schema
 const User = mongoose.model('User', UserSchema);
 
-// Register Route
+app.use(express.static(path.join(__dirname, 'Chatshop AI Code')));
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Chatshop AI Code', 'Home.html'));
+  });
+
+
 app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
 
