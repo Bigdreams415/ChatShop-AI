@@ -2,6 +2,7 @@ require('dotenv').config({ path: './keys.env' }); // Load environment variables 
 console.log('JWT_SECRET:', process.env.JWT_SECRET);  // Debugging line
 
 const express = require('express');
+const path = require('path');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
@@ -12,11 +13,12 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
+
 
 // MongoDB Config
 const db = process.env.MONGO_URI; // Replace with your MongoDB connection string
@@ -36,7 +38,14 @@ const UserSchema = new mongoose.Schema({
 // Create the User model from the schema
 const User = mongoose.model('User', UserSchema);
 
-// Register Route
+app.use(express.static(path.join(__dirname, 'Chatshop AI Code')));
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Chatshop AI Code', 'Home.html'));
+  });
+
+
 app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
 
@@ -121,7 +130,9 @@ app.post('/api/forgot-password', async (req, res) => {
 
         await user.save();
 
-        const resetURL = `https://localhost:5000/reset-password?token=${resetToken}&email=${email}`;
+        const url = new URL(window.location.href);
+
+        const resetURL = `https://${url.origin}/reset-password?token=${resetToken}&email=${email}`;
         await sendPasswordResetEmail(user.email, resetURL);
 
         res.send('Password reset link sent');
