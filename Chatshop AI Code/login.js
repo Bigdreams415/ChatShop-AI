@@ -76,20 +76,26 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             try {
-                const res = await fetch('http://localhost:5000/api/register', {
+                const res = await fetch('/api/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
                 });
-
+            
                 const data = await res.json();
                 console.log("Response from server:", data);
-                alert(data.msg);
-                // Optionally, redirect after successful registration
-                // window.location.href = 'welcome.html';
+                
+                if (res.ok) {
+                    alert(data.msg); 
+                    
+                    window.location.href = '/login.html';
+                } else {
+                   
+                    throw new Error(data.msg || 'Error registering user');
+                }
             } catch (error) {
                 console.error("Error:", error);
-                alert('Error registering user');
+                alert(error.message || 'Error registering user');
             }
         });
     } else {
@@ -114,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             try {
-                const response = await fetch('http://localhost:5000/api/reset-password', {
+                const response = await fetch('/api/reset-password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -155,7 +161,7 @@ async function login(event) {
 
     // Send login request to the backend
     try {
-        const response = await fetch('http://localhost:5000/api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -200,7 +206,7 @@ document.getElementById('forgotPasswordForm').addEventListener('submit', async (
     }
 
     try {
-        const response = await fetch('http://localhost:5000/api/forgot-password', {
+        const response = await fetch('/api/forgot-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

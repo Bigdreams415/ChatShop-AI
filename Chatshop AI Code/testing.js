@@ -185,7 +185,7 @@ function sendMessageToBackend(message) {
   const session_key = "your-session-key"; // Replace with your actual session key
   const email = "user@example.com"; // Replace with the user's email
 
-  fetch('http://localhost:3001/api/v1/chat/product-chat', {
+  fetch('/api/v1/chat/product-chat', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',

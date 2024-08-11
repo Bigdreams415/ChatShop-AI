@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function sendMessageToBackend(message) {
-        fetch('http://localhost:3001/api/v1/chat/product-chat', {
+        fetch('/api/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function initializeChatSession(message) {
         // Fetch session key from backend or initialize session if not present
-        fetch('http://localhost:3001/api/v1/chat/product-chat', {
+        fetch('/api/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ notificationsCheckbox.onchange = function() {
 
 // Function to fetch and display recent chats
 function fetchRecentChats(email, sessionKey) {
-    const url = `http://localhost:3001/api/v1/chat/chats/${encodeURIComponent(email)}/${encodeURIComponent(sessionKey)}/`;
+    const url = `/api/v1/chat/chats/${encodeURIComponent(email)}/${encodeURIComponent(sessionKey)}/`;
     console.log('Fetching URL:', url);
   
     fetch(url, { method: 'GET' })

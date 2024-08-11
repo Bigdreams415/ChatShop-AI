@@ -130,7 +130,9 @@ app.post('/api/forgot-password', async (req, res) => {
 
         await user.save();
 
-        const resetURL = `https://localhost:5000/reset-password?token=${resetToken}&email=${email}`;
+        const url = new URL(window.location.href);
+
+        const resetURL = `https://${url.origin}/reset-password?token=${resetToken}&email=${email}`;
         await sendPasswordResetEmail(user.email, resetURL);
 
         res.send('Password reset link sent');
