@@ -1,24 +1,21 @@
 require('dotenv').config({ path: './keys.env' }); // Load environment variables from Key.env
-console.log('JWT_SECRET:', process.env.JWT_SECRET);  // Debugging line
-
 const express = require('express');
 const path = require('path');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs'); // Use bcryptjs for consistency
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-app.use(express.json());
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
-
 
 // MongoDB Config
 const db = process.env.MONGO_URI; // Replace with your MongoDB connection string
@@ -35,20 +32,32 @@ const UserSchema = new mongoose.Schema({
     resetTokenExpiration: Date
 });
 
-// Create the User model from the schema
 const User = mongoose.model('User', UserSchema);
 
 app.use(express.static(path.join(__dirname, 'Chatshop AI Code')));
 
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Chatshop AI Code', 'Home.html'));
-  });
+});
 
+// Proxy requests for the chat with AI
+app.use('/api/chat', createProxyMiddleware({
+    target: 'http://104.209.179.162', // The target server
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api/chat': '', // Remove the /api/chat prefix when forwarding to the target server
+    },
+    onProxyReq: (proxyReq, req, res) => {
+        console.log('Proxying request to:', proxyReq.path);
+    },
+    onProxyRes: (proxyRes, req, res) => {
+        console.log('Received response from target:', proxyRes.statusCode);
+    }
+}));
 
+// Register Route
 app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
-
     console.log('Register route hit');
     console.log('Received:', { email, password });
 
@@ -84,37 +93,32 @@ app.post('/api/register', async (req, res) => {
 // Login Route
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
-
     console.log('Login route hit');
     console.log('Received:', { email, password });
 
     try {
-        // Find the user by email
         const user = await User.findOne({ email });
         if (!user) {
             console.log('Invalid credentials: User not found');
             return res.status(400).json({ msg: 'Invalid credentials' });
         }
 
-        // Compare the password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             console.log('Invalid credentials: Password mismatch');
             return res.status(400).json({ msg: 'Invalid credentials' });
         }
 
-        // Generate JWT token using the secret from the .env file
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
         console.log('Login successful, token generated');
-        res.json({ token, username: user.email.split('@')[0] }); // Assuming the username is the part before @ in the email
+        res.json({ token, username: user.email.split('@')[0] });
     } catch (error) {
         console.error('Error during login:', error);
         res.status(500).json({ msg: 'Server error' });
     }
 });
 
-// Add the Forgot Password Route
+// Forgot Password Route
 app.post('/api/forgot-password', async (req, res) => {
     try {
         const { email } = req.body;
@@ -142,29 +146,26 @@ app.post('/api/forgot-password', async (req, res) => {
     }
 });
 
-// Dummy email sending function (implementation comes later)
+// Dummy email sending function
 async function sendPasswordResetEmail(email, resetURL) {
-    // Create a transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
-        service: 'Gmail', // Replace with your email provider
+        service: 'Gmail',
         auth: {
-            user: process.env.EMAIL_USER, // Your email address
-            pass: process.env.EMAIL_PASS // Your email password
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
         }
     });
 
-    // Set up email data
     const mailOptions = {
-        from: process.env.EMAIL_USER, // Sender address
-        to: email, // List of receivers
-        subject: 'Password Reset', // Subject line
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: 'Password Reset',
         text: `You requested a password reset. Click the following link to reset your password: ${resetURL}`,
         html: `<p>You requested a password reset.</p>
                <p>Click the following link to reset your password:</p>
                <a href="${resetURL}">${resetURL}</a>`
     };
 
-    // Send the email
     try {
         await transporter.sendMail(mailOptions);
         console.log('Password reset email sent successfully');
@@ -172,7 +173,6 @@ async function sendPasswordResetEmail(email, resetURL) {
         console.error('Error sending password reset email:', error);
     }
 }
-
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
