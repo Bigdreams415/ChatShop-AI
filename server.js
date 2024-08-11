@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB Config
-const db = 'mongodb://localhost:27017/'; // Replace with your MongoDB connection string
+const db = process.env.MONGO_URI; // Replace with your MongoDB connection string
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
