@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const axios = require('axios'); // Import axios
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,20 +40,27 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Chatshop AI Code', 'Home.html'));
 });
 
-// Proxy requests for the chat with AI
-app.use('/api/chat', createProxyMiddleware({
-    target: 'http://104.209.179.162', // The target server
-    changeOrigin: true,
-    pathRewrite: {
-        '^/api/chat': '', // Remove the /api/chat prefix when forwarding to the target server
-    },
-    onProxyReq: (proxyReq, req, res) => {
-        console.log('Proxying request to:', proxyReq.path);
-    },
-    onProxyRes: (proxyRes, req, res) => {
-        console.log('Received response from target:', proxyRes.statusCode);
+// Route to handle chat requests directly
+app.post('/api/chat/product-chat', async (req, res) => {
+    const { session_key, email, message } = req.body;
+    console.log('Chat route hit');
+    console.log('Received:', { session_key, email, message });
+
+    try {
+        const response = await axios.post('http://104.209.179.162/v1/chat/product-chat', {
+            session_key,
+            email,
+            message
+        });
+
+        // Send the response back to the client
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error during chat request:', error.message);
+        console.error('Error details:', error.response ? error.response.data : error.message);
+        res.status(error.response?.status || 500).json({ msg: 'Server error', details: error.message });
     }
-}));
+});
 
 // Register Route
 app.post('/api/register', async (req, res) => {
@@ -127,7 +134,7 @@ app.post('/api/forgot-password', async (req, res) => {
         if (!user) {
             return res.status(404).send('User not found');
         }
-
+        
         const resetToken = crypto.randomBytes(32).toString('hex');
         user.resetToken = resetToken;
         user.resetTokenExpiration = Date.now() + 3600000; // 1 hour from now
