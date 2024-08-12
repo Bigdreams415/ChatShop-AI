@@ -38,13 +38,7 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', UserSchema);
 
-app.use(express.static(path.join(__dirname, 'Chatshop AI Code'), {
-    setHeaders: (res, path, stat) => {
-        if (path.endsWith('.js')) {
-            res.set('Content-Type', 'application/javascript');
-        }
-    }
-}));
+app.use(express.static(path.join(__dirname, 'Chatshop AI Code')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Chatshop AI Code', 'Home.html'));
