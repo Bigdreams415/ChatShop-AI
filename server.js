@@ -15,7 +15,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], 
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // MongoDB Config
 const db = process.env.MONGO_URI; // Replace with your MongoDB connection string
@@ -46,12 +50,17 @@ app.use('/api/chat', createProxyMiddleware({
     changeOrigin: true,
     pathRewrite: {
         '^/api/chat': '', // Remove the /api/chat prefix when forwarding to the target server
+        
     },
     onProxyReq: (proxyReq, req, res) => {
         console.log('Proxying request to:', proxyReq.path);
     },
     onProxyRes: (proxyRes, req, res) => {
         console.log('Received response from target:', proxyRes.statusCode);
+    },
+    onError: (err, req, res) => {
+        console.error('Proxy Error:', err);
+        res.status(500).send('Proxy Error: ' + err.message);
     }
 }));
 

@@ -33,24 +33,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     userInput.addEventListener('keydown', function(event) {
-        if (event.keyCode === 13) { // Check if Enter key is pressed
-            if (!event.shiftKey && userInput.value.trim() !== '') {
-                event.preventDefault(); // Prevent default Enter key behavior (new line)
-                sendMessage(userInput.value.trim());
-            }
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
         }
     });
 
-    function sendMessage(message) {
-        addMessage('user', message);
-        userInput.value = '';
-        document.querySelector('.main-bar-chat-area h3').style.display = 'none'; // Hide introductory text
-        document.getElementById('suggestions').style.display = 'none'; // Hide suggestions
+    sendButton.addEventListener('click', sendMessage);
 
-        if (!sessionKey) {
-            initializeChatSession(message);
-        } else {
-            sendMessageToBackend(message);
+    function sendMessage() {
+        const message = userInput.value.trim();
+        if (message) {
+            addMessage('user', message);
+            userInput.value = '';
+            document.querySelector('.main-bar-chat-area h3').style.display = 'none';
+            document.getElementById('suggestions').style.display = 'none';
+
+            if (!sessionKey) {
+                initializeChatSession(message);
+            } else {
+                sendMessageToBackend(message);
+            }
         }
     }
 
@@ -66,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function sendMessageToBackend(message) {
-        fetch('/api/v1/chat/product-chat', {
+        fetch('http://104.209.179.162/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 session_key: sessionKey,
                 email: email,
                 input: message
-            })
+            }),
+            timeout: 60000
         })
         .then(response => response.json())
         .then(data => {
@@ -127,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function initializeChatSession(message) {
         // Fetch session key from backend or initialize session if not present
-        fetch('/api/v1/chat/product-chat', {
+        fetch('http://104.209.179.162/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,7 +141,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 input: message // Initialize the session with the user's first message
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
+                });
+            }
+            return response.json();
+        })
         .then(data => {
             if (data && data.session_key) {
                 sessionKey = data.session_key;
@@ -207,7 +218,7 @@ notificationsCheckbox.onchange = function() {
 
 // Function to fetch and display recent chats
 function fetchRecentChats(email, sessionKey) {
-    const url = `/api/v1/chat/chats/${encodeURIComponent(email)}/${encodeURIComponent(sessionKey)}/`;
+    const url = `http://104.209.179.162/v1/chat/chats/${encodeURIComponent(email)}/${encodeURIComponent(sessionKey)}/`;
     console.log('Fetching URL:', url);
   
     fetch(url, { method: 'GET' })
