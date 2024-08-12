@@ -175,7 +175,7 @@ async function login(event) {
             sessionStorage.setItem('email', email);
             sessionStorage.setItem('username', data.username); // Store the username for use on the welcome page
             // Redirect to the welcome page
-            window.location.href = 'welcome.html';
+            window.location.href = 'Welcome.html';
         } else {
             alert('Login failed');
         }

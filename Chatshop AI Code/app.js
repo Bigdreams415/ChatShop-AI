@@ -36,24 +36,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     userInput.addEventListener('keydown', function(event) {
-        if (event.keyCode === 13) { // Check if Enter key is pressed
-            if (!event.shiftKey && userInput.value.trim() !== '') {
-                event.preventDefault(); // Prevent default Enter key behavior (new line)
-                sendMessage(userInput.value.trim());
-            }
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
         }
     });
 
-    function sendMessage(message) {
-        addMessage('user', message);
-        userInput.value = '';
-        document.querySelector('.main-bar-chat-area h3').style.display = 'none'; // Hide introductory text
-        document.getElementById('suggestions').style.display = 'none'; // Hide suggestions
+    sendButton.addEventListener('click', sendMessage);
 
-        if (!sessionKey) {
-            initializeChatSession(message);
-        } else {
-            sendMessageToBackend(message);
+    function sendMessage() {
+        const message = userInput.value.trim();
+        if (message) {
+            addMessage('user', message);
+            userInput.value = '';
+            document.querySelector('.main-bar-chat-area h3').style.display = 'none';
+            document.getElementById('suggestions').style.display = 'none';
+
+            if (!sessionKey) {
+                initializeChatSession(message);
+            } else {
+                sendMessageToBackend(message);
+            }
         }
     }
 
@@ -69,13 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function sendMessageToBackend(message) {
-        console.log('Sending message to backend:', {
-            session_key: sessionKey,
-            email: email,
-            input: message
-        });
-
-        fetch('http://104.209.179.162/v1/chat/product-chat', {
+        fetch('https://chatshop.eastus2.cloudapp.azure.com/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 session_key: sessionKey,
                 email: email,
                 input: message
-            })
+            }),
+            timeout: 60000
         })
         .then(response => response.json())
         .then(data => {
@@ -134,9 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function initializeChatSession(message) {
-        console.log('Initializing chat session with message:', message);
-
-        fetch('http://104.209.179.162/v1/chat/product-chat', {
+        // Fetch session key from backend or initialize session if not present
+        fetch('https://chatshop.eastus2.cloudapp.azure.com/v1/chat/product-chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -146,7 +143,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 input: message
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
+                });
+            }
+            return response.json();
+        })
         .then(data => {
             console.log('Session initialization response:', data);
 
@@ -175,10 +179,63 @@ document.addEventListener("DOMContentLoaded", function() {
     var notificationsCheckbox = document.getElementById("notifications");
     var body = document.getElementById("body");
 
-    // Open the popup
-    if (btn) {
-        btn.onclick = function() {
-            popup.style.display = "block";
+// Get the elements
+var popup = document.getElementById("settings-popup");
+var btn = document.getElementById("settings-button");
+var span = document.getElementById("close-popup");
+var themeSelect = document.getElementById("theme");
+var notificationsCheckbox = document.getElementById("notifications");
+var body = document.getElementById("body");
+
+// Open the popup
+btn.onclick = function() {
+    popup.style.display = "block";
+}
+
+// Close the popup
+span.onclick = function() {
+    popup.style.display = "none";
+}
+
+// Close the popup if clicking outside of it
+window.onclick = function(event) {
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+}
+
+// Handle theme change
+themeSelect.onchange = function() {
+    if (themeSelect.value === "dark") {
+        body.classList.add("dark-mode");
+    } else {
+        body.classList.remove("dark-mode");
+    }
+}
+
+// Handle notifications toggle (example)
+notificationsCheckbox.onchange = function() {
+    if (notificationsCheckbox.checked) {
+        console.log("Notifications Enabled");
+    } else {
+        console.log("Notifications Disabled");
+    }
+}
+
+
+
+
+// Recent chat
+
+// Function to fetch and display recent chats
+function fetchRecentChats(email, sessionKey) {
+    const url = `https://chatshop.eastus2.cloudapp.azure.com/v1/chat/chats/${encodeURIComponent(email)}/${encodeURIComponent(sessionKey)}/`;
+    console.log('Fetching URL:', url);
+  
+    fetch(url, { method: 'GET' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
     }
 
