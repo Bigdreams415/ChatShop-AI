@@ -5,7 +5,11 @@
       { "src": "proxy-server.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "proxy-server.js" },
+        {
+            "src": "/(.*)\\.js$",
+            "headers": { "Content-Type": "application/javascript" },
+            "continue": true
+          },
       { "src": "/(.*)", "dest": "server.js" }
     ]
   }
