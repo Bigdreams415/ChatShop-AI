@@ -59,17 +59,33 @@
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: hwb(0 100% 0%);
+        background-color: black; /* Changed background color to black */
+        color: white; /* Set text color to white */
         width: 100%;
         display: none;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Add padding if needed */
+        padding-bottom: 25px;
+        padding-top: 25px;
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+
+    .navigation-bar .container .logo {
+        display: none;
     }
 
     .navigation-bar .nav-links ul {
         flex-direction: column;
         gap: 15px;
-        margin-right: 0;
+        margin: 0; /* Remove right margin */
+        padding: 0; /* Remove padding */
+        list-style-type: none; /* Remove default list styling */
+    }
+
+    .navigation-bar .nav-links ul li a {
+        color: white; /* Set link color to white */
+        text-decoration: none; /* Remove underline from links */
     }
 
     .hamburger-menu {
@@ -207,72 +223,71 @@
 
 
 /* Styles for the recommendations section */
-.recommendations {
-    background-color: #fff;
-    padding: 40px 0;
-}
-
 .recommendations .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    align-items: center;
+    gap: 15px;
+    position: relative;
 }
 
-/* Recommendation content styles */
-.recommendations .recommendation-content1,
-.recommendations .recommendation-content2,
-.recommendations .recommendation-content3,
-.recommendations .recommendation-content {
-    flex: 1 1 30%;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.recommendations .container > div {
+    width: 150px;
+    height: 80px;
+    padding: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 12px !important; /* Added border-radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: black;
+    font-size: 14px;
+    position: relative;
+    transform: rotate(-2deg);
+    animation: float 5s ease-in-out infinite;
 }
 
-/* Color variations */
-.recommendations .recommendation-content1 {
-    background-color: #e6f7ff;
-    color: #007bff;
+.recommendations .container > div:hover {
+    transform: scale(1.1) rotate(0deg) !important; /* Zoom out and straighten on hover */
 }
 
-.recommendations .recommendation-content2 {
-    background-color: #e6ffe6;
-    color: #28a745;
+.recommendation-content1 {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #EA4335, #84261E) 1;
+    border-radius: 12px !important; /* Added border-radius */
 }
 
-.recommendations .recommendation-content3 {
-    background-color: #fff3e6;
-    color: #fd7e14;
+/* .recommendation-content{
+    border-color: linear-gradient(45deg, #EA4335, #84261E) 1 ;
+} */
+
+.recommendation-content2 {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #00ACC1, #00515B) 1;
+    border-radius: 12px !important; /* Added border-radius */
 }
 
-.recommendations .recommendation-content small {
-    font-size: 1rem;
-    color: inherit;
-    display: block;
+.recommendation-content3 {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #FBBC05, #957003) 1;
+    border-radius: 12px !important; /* Added border-radius */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .recommendations .recommendation-content1,
-    .recommendations .recommendation-content2,
-    .recommendations .recommendation-content3,
-    .recommendations .recommendation-content {
-        flex: 1 1 100%; /* Full width on small screens */
-        margin-bottom: 15px;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
     }
-
-    .recommendations .container {
-        padding: 0 10px; /* Reduce padding on smaller screens */
+    50% {
+        transform: translateY(-10px) rotate(2deg);
     }
 }
 
-
+.recommendations small{
+    color: #000 !important;
+    font-size: 17px;
+}
 
 
 /* Styles for the Unlocking Effortless Shopping section */

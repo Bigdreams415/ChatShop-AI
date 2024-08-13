@@ -248,12 +248,13 @@ body, html {
 }
 
 .input-container textarea{
+    /* position: fixed; */
     width: calc(100% - 60px); /* Adjust as needed */
     padding: 10px;
     /* border: 1px solid #ccc; */
     border-radius: 20px;
     resize: none;
-    font-size: 14px;
+    font-size: 20px;
     box-sizing: border-box;
 }
 
@@ -410,7 +411,7 @@ body.dark-mode .popup-content {
 /* Base styles for larger screens (desktop) */
 
 /* Mobile styles */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     /* Reset default margins and paddings for mobile */
     body, html {
         margin: 0;
@@ -546,5 +547,219 @@ body.dark-mode .popup-content {
     /* Hide the settings button when the sidebar is active */
     .side-bar .settings-button {
         display: none;
+    }
+}
+
+
+/* Mobile Version of Chatshop AI */
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .side-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #222;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .side-bar.open {
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 11;
+    }
+
+    .navigation-bar {
+        display: none;
+    }
+
+    .logo img {
+        display: none;
+    }
+
+    .logo h3 {
+        color: white;
+        font-size: 18px;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .hidden {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .hidden h4 {
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .new-chat a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .new-chat a img {
+        width: 20px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    .hidden ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .hidden ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0;
+        display: block;
+    }
+
+    .lower-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .lower-icon .settings,
+    .lower-icon .help {
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        margin-bottom: 20px;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .nav-links ul li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    .nav-links ul li a img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .main-bar-chat-area {
+        flex-grow: 1;
+        padding: 20px;
+        margin-left: 0; /* Sidebar is hidden by default */
+        overflow-y: auto;
+    }
+
+    .intro-text {
+        text-align: center;
+        color: #333;
+    }
+
+    .ai-chat-sample-idea {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .suggestion {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        cursor: pointer;
+    }
+
+    .suggestion h4 {
+        margin: 0 0 5px;
+        font-size: 16px;
+    }
+
+    .suggestion small {
+        color: #666;
+    }
+
+    .input-area {
+        position: fixed;
+        bottom: 60px;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #userInput {
+        width: 90% !important;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    #sendButton {
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        width: 0%;
+        margin-right: 40px;
+    }
+
+    #sendButton i {
+        font-size: 30px;
+        position: relative;
+        top: 50%;
+        left: 30%;
+        margin-right: 10px;
+        color: blue;
     }
 }
